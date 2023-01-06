@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	/* the passed opcode file to the monty interpreter*/
 	char *file_name;
 
-	file_name = argv[1];
+	file_name = argv[1];x
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
