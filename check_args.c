@@ -39,5 +39,5 @@ int check_args(char *tk)
 			return (0);
 		}
 	}
-	return (0)
+	return (0);
 }
