@@ -14,7 +14,7 @@
  * @next: points to the next element of the stack
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ *
  */
 typedef struct stack_s
 {
