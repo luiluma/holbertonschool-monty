@@ -30,42 +30,6 @@ int open_file_to_read(char *filename, stack_t **stack)
 	unsigned int line_counter = 0;
 	size_t buff_size;
 
-	in_file = fopen(filename, "r");
-	if (in_file == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		exit(EXIT_FAILURE);
-	}
-	while (getline(&buff_line, &buff_size, in_file) != EOF)
-	{
-		token = strtok(buff_line, "\n\t\r ");
-		number = strtok(NULL, "\n\t\r ");
-		line_counter++;
-		if (token && token[0] != '#')
-		{
-			if (strcmp(token, "push") == 0)
-			{
-				if (is_number(number) == -1)
-				{
-					fprintf(stderr, "L%u: usage: push integer\n", line_counter);
-					_free(buff_line, in_file);
-				}
-				take_num = atoi(number);
-			}
-			/* printf("token = %s, number = %d\n", token, take_num); */
-			if (get_opcode(token, line_counter, stack) == 1)
-			{
-				fprintf(stderr, "L%u: unknown instruction %s\n", line_counter, token);
-				_free(buff_line, in_file);
-				free_stack(stack);
-			}
-		}
-	}
-	free(buff_line);
-	free_stack(stack);
-	fclose(in_file);
-	return (0);
-}
 /**
  * _free - Free line, close file and exit
  * @buff_line:line
